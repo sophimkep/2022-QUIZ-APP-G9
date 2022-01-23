@@ -48,18 +48,14 @@ ul li{
     padding: 3rem;
     
 }
-.container .display-question {
-    display: block;
-    margin-top: -5%;
+.container .display-question .title{
+    margin-top: 4rem;
     
-}
-.container .display-question h1{
-    margin-bottom: 10px;
 }
 .container .card{
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     border-radius: 8px;
-    padding: 2rem;
+    padding: 4rem;
     border-top: 5px solid #1565c0;
     margin-bottom: 1rem;
 }
@@ -71,7 +67,7 @@ ul li{
     padding: 5px; 
 }
 
-.button .btn{
+#button .btn{
     float: right;
     margin-left: 5px;
     margin-right: 5px;
@@ -84,7 +80,7 @@ ul li{
     background: #1565c0;
     color: white;
 }
-.button .btn:hover{
+#button .btn:hover{
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
@@ -106,3 +102,60 @@ ul li{
 .card .option #delete{
     color: red;
 }
+/* add question */
+.input {
+    width: 80%;
+    margin: auto;
+    padding: 10px 10px;
+    text-align: center;
+    
+    
+}
+input {
+    padding: 5px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+}
+
+input[type="radio"] {
+    font: inherit;
+    width: 1.30em;
+    height: 1.30em;
+    border: 1em solid currentColor;
+    border-radius: 50%;
+}
+
+.question input {
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    outline: none;
+}
+.answers input {
+    width: 50%;
+    margin-left: -18%;
+}
+.button #create-btn {
+    float: right;
+    color: white;
+    font-weight: bold;
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #1565c0;
+    font-size: 1rem;
+    border: none;
+}
+.button #create-btn:hover{
+    transition: 0.3s;
+    color: black;
+    background: #eee;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.an{
+    display: flex;
+}
+
