@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,56 +10,58 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/main.css">
-<script src="js/main.js"></script>
+
 <body>
     <div class="nav-bar">
         <div class="logo">
             <a href=""><img src="img/logo.png" alt=""></a>
         </div>
-            <ul class="menu">
-                <li class="play">Play Quiz</li>
-                <li class="create">Create Quiz</li>
-            </ul>
-        </div>
+        <ul class="menu">
+            <li class="play">Play Quiz</li>
+            <li class="create">Create Quiz</li>
+        </ul>
+    </div>
     </div>
     <div class="container">
         <!-- add question -->
         <form action="" class="card">
-            <div class="input">
-                <div class="question">
-                    <input type="text" placeholder="Add Question..." class="ask" id="question">
+            <div class="question-score">
+                <input type="text" placeholder="Add question..." id="question">
+                <input type="number" class="score">
+            </div>
+
+            <br>
+            <div class="answers">
+                <div class="an">
+                    <input type="radio" name="eachAnswer" value="">
+                    <input type="text" placeholder="Option1..." id="answer1" class="input-group">
                 </div>
-                <br>
-                <div class="answers">
-                    <div class="an">
-                        <input type="radio" name="eachAnswer" value="">
-                        <input type="text" placeholder="Option1..." id="answer1">
-                    </div>
-                    <div class="an">
-                        <input type="radio" name="eachAnswer" value="">
-                        <input type="text" placeholder="Option2..." id="answer2">
-                    </div>
-                    <div class="an">
-                        <input type="radio" name="eachAnswer" value="">
-                        <input type="text" placeholder="Option3..." id="answer3">
-                    </div>
-                    <div class="an">
-                        <input type="radio" name="eachAnswer" value="">
-                        <input type="text" placeholder="Option4..." id="answer4">
-                    </div>
+                <div class="an">
+                    <input type="radio" name="eachAnswer" value="">
+                    <input type="text" placeholder="Option2..." id="answer2" class="input-group">
+                </div>
+                <div class="an">
+                    <input type="radio" name="eachAnswer" value="">
+                    <input type="text" placeholder="Option3..." id="answer3" class="input-group">
+                </div>
+                <div class="an">
+                    <input type="radio" name="eachAnswer" value="">
+                    <input type="text" placeholder="Option4..." id="answer4" class="input-group">
                 </div>
             </div>
             <div class="button">
                 <button id="create-btn" type="button">Create</button>
             </div>
         </form>
-        <div class="display-question">
-            <h1 id="title"></h1>
-        </div>
-        <div class="button">
-            <button class="btn" id="create">Create</button>
-            <button class="btn" id="start">Start</button>
-        </div>
+    <div class="display-question">
+        <h1 id="title"></h1>
     </div>
+    <div id="button">
+        <button class="btn" id="create">Create</button>
+        <button class="btn" id="start">Start</button>
+    </div>
+    </div>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
