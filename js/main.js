@@ -1,5 +1,5 @@
 // add question
-let listOfQuestionAndAnswer= [
+let listOfQuestionAndAnswers= [
     { Question: 'How many studets of generation 2020-2022 ?', Option1: 70, Option2: 71, Option3: 69, Option4: 65,checked:false},
     { Question: 'When pnc was created ?', Option1: 2002, Option2: 2005, Option3: 2007, Option4: 2006,checked:true},
     { Question: 'How many countries that PN operating nowaday  ?', Option1: 3, Option2: 6, Option3: 9, Option4: 5,checked:false}
@@ -28,12 +28,14 @@ function addQuestion() {
     newList.Option3 = thirdA;
     newList.Option4 = fourthA;
     newList.checked = correctAnswer;
-    listOfQuestionAndAnswer.push(newList)
-    
+    listOfQuestionAndAnswers.push(newList)
+    console.log(listOfQuestionAndAnswers)
 }
 
 let createButton = document.getElementById("create-btn");
 createButton.addEventListener("click", addQuestion);
 
+// Disply game 
+function displayGame() {
 
- 
+}
