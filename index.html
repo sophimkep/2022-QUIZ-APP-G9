@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/main.css">
@@ -23,17 +24,29 @@
     </div>
     </div>
     <div class="container">
+        
+        <div class="message-container">
+            <p id="no-question"><strong> Warning!</strong> Don't have any questions here, click <strong>CREATE QUIZ</strong> to create new quiz.</p>
+        </div>
         <!-- add question -->
         <div class="description-card">
             <h2>Quiz Title</h2>
             <input type="text" placeholder="Description..." class="description">
         </div>
-        <form action="" class="card">
+        <div class="message-container1" id="rem">
+            <p id="warning-message"><strong>Warning!</strong> You should check if you complete all field and asign the score. </p>
+            <p><i class="fa fa-close"></i> </p> 
+        </div>
+        <div class="message-container2" id="rem">
+            <p id="succes-message"><i class="fa fa-check"></i><strong>Success!</strong> The question added to the list.</p>
+            <i class="fa fa-close"></i>
+        </div>
+        <form action="" id="card">
             <div class="question-score">
                 <input type="text" placeholder="Add question..." id="question">
-                <input type="number" class="score" value="0">
+                <span>Score:</span><input type="number" class="score" value="0" min="0" max="100">
             </div>
-
+        
             <br>
             <div class="answers">
                 <div class="an">
@@ -54,16 +67,16 @@
                 </div>
             </div>
             <div class="button">
-                <button id="create-btn" type="button">Create</button>
+                <button id="create-btn" type="button">Add +</button>
             </div>
         </form>
-    <div class="display-question">
-        <h1 id="title"></h1>
-    </div>
-    <div id="button">
-        <button class="btn" id="create">Create</button>
-        <button class="btn" id="start">Start</button>
-    </div>
+        <div class="display-question">
+            <h1 id="title"></h1>
+        </div> 
+        <button class="btn" id="show">Show</button>
+        <button class="btn" id="play">Play</button>
+        <button type="submit" id="submit" class="">Submit</button>
+        
     </div>
     <script src="js/main.js"></script>
 </body>

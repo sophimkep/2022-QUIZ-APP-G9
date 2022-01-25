@@ -48,8 +48,9 @@ ul li{
     padding: 3rem;
     
 }
-.container .display-question .title{
-    margin-top: 4rem;
+.container .display-question #title{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     
 }
 .container .card{
@@ -58,7 +59,7 @@ ul li{
     padding: 4rem;
     border-top: 5px solid #1565c0;
     margin-bottom: 1rem;
-    text-align: center;
+    /* text-align: center; */
 }
 .mgt {
     margin-top: 0.5rem;
@@ -68,7 +69,7 @@ ul li{
     padding: 5px; 
 }
 
-#button .btn{
+.btn{
     float: right;
     margin-left: 5px;
     margin-right: 5px;
@@ -81,7 +82,7 @@ ul li{
     background: #1565c0;
     color: white;
 }
-#button .btn:hover{
+.btn:hover{
     transition: 0.3s;
     color: black;
     background: #eee;
@@ -107,8 +108,15 @@ ul li{
     color: red;
 }
 /* add question */
+#card {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 8px;
+    padding: 4rem;
+    border-top: 5px solid #1565c0;
+    margin-bottom: 1rem;
+}
 #button{
-    display: none;
+    display: block;
 }
 
 form {
@@ -126,13 +134,13 @@ form {
     border: none;
     border-bottom: 1px solid gray;
     outline: none;
-    width: 90%;
+    width: 75%;
 }
 .score {
-    padding: 5px;
     outline: none;
     float: right;
-    width: 50px;
+    width: 30px;
+    margin-top: 8px;
     
 }
 .answers {
@@ -191,4 +199,70 @@ input[type="radio"] {
     outline: none;
     width: 90%;
     margin-top: 20px;
+}
+/* display question */
+#button{
+    display: none;
+}
+.myschore {
+    font-size: 1rem;
+    float: right;
+}
+#submit {
+    float: right;
+    color: white;
+    font-weight: bold;
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #1565c0;
+    font-size: 1rem;
+    border: none;
+    display: none;
+}
+#submit:hover{
+    transition: 0.3s;
+    color: black;
+    background: #eee;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+/* message */
+.message-container{
+    padding: 10px;
+    background: #ffab91;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: red;
+    display: none;
+}
+.message-container1{
+    padding: 10px;
+    background: #ffab91;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    display: none;
+}
+.message-container2{
+    padding: 10px;
+    background: #81c784;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    display: none;
+}
+#warning-message, .fa-close{
+    color: red;
+}
+.fa-close:hover{
+    cursor: pointer;
+}
+#succes-message{
+    color: green;
 }
