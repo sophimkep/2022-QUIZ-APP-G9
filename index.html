@@ -13,16 +13,16 @@
 <link rel="stylesheet" href="css/main.css">
 
 <body>
-    <div class="nav-bar">
-        <div class="logo">
-            <a href=""><img src="img/logo.png" alt=""></a>
+    <div class="nav-container">
+        <div class="nav-bar">
+            <div class="logo">
+                <a href=""><img src="img/logo.png" alt=""></a>
+            </div>
+            <ul class="menu">
+                <li id="play-quiz" class="active1">Play Quiz</li>
+                <li id="edit-Quiz" class="active2">Edit Quiz</li>
+            </ul>
         </div>
-        <ul class="menu">
-
-            <li id="play-quiz" class="active1">Play Quiz</li>
-            <li id="edit-Quiz" class="active2">Edit Quiz</li>
-        </ul>
-    </div>
     </div>
     <div class="container">
         <!-- add question -->
@@ -30,11 +30,22 @@
             <h2>Quiz Title</h2>
             <input type="text" placeholder="Description..." class="description">
         </div>
-
+        <div class="message-container" id="rem">
+            <p id="no-question"><strong> Warning!</strong> Don't have any questions here, complete all form to create quiz.</p>
+            <i class="fa fa-close"></i>
+        </div>
+        <div class="message-container1" id="rem">
+            <p id="warning-message"><strong>Warning!</strong> You should check if you complete all field and asign the score. </p>
+            <p><i class="fa fa-close"></i> </p> 
+        </div>
+        <div class="message-container2" id="rem">
+            <p id="succes-message"><i class="fa fa-check"></i><strong>Success!</strong> The question added to the list.</p>
+            <i class="fa fa-close"></i>
+        </div>
         <form action="" class="form-card">
             <div class="question-score">
                 <input type="text" placeholder="Add question..." id="question">
-                <input type="number" class="score" value="0">
+                <input type="number" class="score" value="0" min="0" max="100">
             </div>
 
             <br>

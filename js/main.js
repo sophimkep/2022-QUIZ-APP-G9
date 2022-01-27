@@ -26,6 +26,14 @@ function addQuestion() {
         newList.score = score;
         listOfQuestionAndAnswer.push(newList)
         displayQuestion(listOfQuestionAndAnswer)
+        document.querySelector(".message-container2").style.display = "block";
+        document.querySelector(".message-container2").style.display = "flex";
+        document.querySelector(".message-container1").style.display = "none";
+        document.querySelector(".message-container").style.display = "none";
+    }else{
+        document.querySelector(".message-container1").style.display = "block";
+        document.querySelector(".message-container1").style.display = "flex";
+        document.querySelector(".message-container").style.display = "none";
     }
     
     
@@ -120,11 +128,43 @@ function displayQuestion(list){
         card.appendChild(option);
     }
 }
+
+// display all question
+function displayAllQuestion(){
+    if (listOfQuestionAndAnswer.length>0){
+        document.querySelector("form").style.display = "none";
+        document.querySelector(".description-card").style.display = "none"
+        document.querySelector(".message-container").style.display = "none";
+        document.querySelector(".message-container1").style.display = "none";
+        document.querySelector(".message-container2").style.display = "none";
+    }else{
+        document.querySelector(".message-container").style.display = "block";
+        document.querySelector(".message-container").style.display = "flex";
+        document.querySelector(".message-container1").style.display = "none";
+        document.querySelector(".message-container2").style.display = "none";
+    }
+}
+let show = document.querySelector("#show");
+show.addEventListener("click", displayAllQuestion)
+
+// delete message 
+function removeMessage(){
+    let deleteMessage = document.querySelectorAll("#rem");
+    for (let del of deleteMessage){
+        del.style.display = "none"
+    }
+}
+let hideMessage = document.querySelectorAll(".fa.fa-close");
+for (let hide of hideMessage){
+    hide.addEventListener("click", removeMessage)
+}
+
+// acitve when clicking
 let active1 = document.querySelector("#play-quiz");
 function act(){
     document.querySelector(".active1").style.background = "#90caf9"
     document.querySelector(".active1").style.color = "white"
-    document.querySelector(".active2").style.background = "cornsilk"
+    document.querySelector(".active2").style.background = "white"
     document.querySelector(".active2").style.color = "#1565c0"
 }
 active1.addEventListener("click", act)
@@ -133,7 +173,7 @@ let active2 = document.querySelector("#edit-Quiz");
 function active(){
     document.querySelector(".active2").style.background = "#90caf9"
     document.querySelector(".active2").style.color = "white"
-    document.querySelector(".active1").style.background = "cornsilk"
+    document.querySelector(".active1").style.background = "white"
     document.querySelector(".active1").style.color = "#1565c0"
 }
 active2.addEventListener("click", active);
