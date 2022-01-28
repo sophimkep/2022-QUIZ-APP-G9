@@ -26,13 +26,21 @@ function addQuestion() {
         newList.score = score;
         listOfQuestionAndAnswer.push(newList)
         displayQuestion(listOfQuestionAndAnswer)
-        document.querySelector(".message-container2").style.display = "block";
-        document.querySelector(".message-container2").style.display = "flex";
         document.querySelector(".message-container1").style.display = "none";
         document.querySelector(".message-container").style.display = "none";
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Question added to the list',
+            showConfirmButton: false,
+            timer: 1500
+          })
     }else{
-        document.querySelector(".message-container1").style.display = "block";
-        document.querySelector(".message-container1").style.display = "flex";
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! this form is not completed',
+          })
         document.querySelector(".message-container").style.display = "none";
     }
     
@@ -126,6 +134,7 @@ function displayQuestion(list){
         option.appendChild(icon);
         option.appendChild(trash);
         card.appendChild(option);
+        
     }
 }
 
@@ -133,31 +142,22 @@ function displayQuestion(list){
 function displayAllQuestion(){
     if (listOfQuestionAndAnswer.length>0){
         document.querySelector("form").style.display = "none";
-        document.querySelector(".description-card").style.display = "none"
-        document.querySelector(".message-container").style.display = "none";
-        document.querySelector(".message-container1").style.display = "none";
-        document.querySelector(".message-container2").style.display = "none";
+        document.getElementById("add").style.display = "block";
+        document.getElementById("show").style.display = "none";
     }else{
-        document.querySelector(".message-container").style.display = "block";
-        document.querySelector(".message-container").style.display = "flex";
-        document.querySelector(".message-container1").style.display = "none";
-        document.querySelector(".message-container2").style.display = "none";
+        Swal.fire({
+            title: 'No question in list for now!',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
     }
 }
 let show = document.querySelector("#show");
 show.addEventListener("click", displayAllQuestion)
-
-// delete message 
-function removeMessage(){
-    let deleteMessage = document.querySelectorAll("#rem");
-    for (let del of deleteMessage){
-        del.style.display = "none"
-    }
-}
-let hideMessage = document.querySelectorAll(".fa.fa-close");
-for (let hide of hideMessage){
-    hide.addEventListener("click", removeMessage)
-}
 
 // acitve when clicking
 let active1 = document.querySelector("#play-quiz");
