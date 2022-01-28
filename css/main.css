@@ -40,6 +40,44 @@ ul li{
     color: cornsilk;
     border-radius: 7px;
 }
+/* container-banner */
+.container-banner {
+    width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    color: #1565c0;
+    margin-top: 5px;
+}
+.container-banner p {
+    padding: 10px;
+    font-size: 18px;
+}    
+.container-banner img{
+    width: 580px;
+    height: 460px;
+    padding: 40px;
+}.button{
+    padding: 17px;
+}
+.container-banner input{
+    padding: 10px;
+    outline: none;
+    color:  #1565c0;
+    font-size: 17px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid  #969faa;
+}
+.container-banner input:focus{
+    border-bottom: 2px solid #1565c0 ;
+}
+.container-banner ::placeholder{
+    color: rgb(183, 215, 243);
+}
 /* container */
 .container{
     width: 50%;

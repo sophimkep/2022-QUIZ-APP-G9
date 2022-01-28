@@ -42,14 +42,27 @@ function addQuestion() {
             text: 'Something went wrong! this form is not completed',
           })
         document.querySelector(".message-container").style.display = "none";
-    }
-    
-    
+    }  
 }
+// hide banner
+function hideBanner(){
+    let userName = document.querySelector('#username').value;
+    if(userName!==''){
+        document.querySelector('.container-banner').style.display = 'none'
+    }else{
+        window.confirm('You are forget complect your name !')
+    }
+}
+// btn create question
 let createButton = document.getElementById("create-btn");
 createButton.addEventListener("click", addQuestion);
+// btn create quiz on menu
+let createQuiz = document.getElementById("create-Quiz");
+createQuiz.addEventListener("click", hideBanner);
 
-
+//remove
+let indexRemove = 0;
+//number of question 
 // display question
 function displayQuestion(list){
     let newcardContainer = document.querySelector(".display-question");
@@ -57,10 +70,10 @@ function displayQuestion(list){
     for (let cards of allcards){
         cards.parentNode.removeChild(cards)
     }
+    let numberQ = 1
     let title = document.querySelector(".description").value;
     document.getElementById("title").textContent = title;
     for (let question in list){
-
         // create div name card to contain question and answers
         let card = document.createElement("div");
         card.className = "card";
@@ -69,7 +82,7 @@ function displayQuestion(list){
         // create h2 className questions and append to card
         let questions = document.createElement("h3");
         questions.className = "questions";
-        questions.textContent = listOfQuestionAndAnswer[question].Question;
+        questions.textContent ='Question : '+ numberQ +'. ' + listOfQuestionAndAnswer[question].Question;
         
         // get score from array 
         let scoreEachQuestion = document.createElement("p");
@@ -87,23 +100,19 @@ function displayQuestion(list){
         form_gruop3.className = 'form-group';
         let form_gruop4 = document.createElement('div')
         form_gruop4.className = 'form-group';
-        
-        
+                
         const answer1 = document.createElement('label')
         answer1.className = "eachAn"
         answer1.textContent = "a .  " + listOfQuestionAndAnswer[question].Options.a;
-        
-        
+                
         const answer2 = document.createElement('label')
         answer2.className = "eachAn"
         answer2.textContent = "b .  " + listOfQuestionAndAnswer[question].Options.b;
-        
-        
+                
         const answer3 = document.createElement('label')
         answer3.className = "eachAn"
         answer3.textContent = "c .  " + listOfQuestionAndAnswer[question].Options.c;
-        
-        
+                
         const answer4 = document.createElement('label')
         answer4.className = "eachAn"
         answer4.textContent = "d .  " + listOfQuestionAndAnswer[question].Options.d;
@@ -113,8 +122,7 @@ function displayQuestion(list){
         form_gruop2.appendChild(answer2)
         form_gruop3.appendChild(answer3)
         form_gruop4.appendChild(answer4)
-        
-        
+                
         card.appendChild(form_gruop1)
         card.appendChild(form_gruop2)
         card.appendChild(form_gruop3)
@@ -130,30 +138,45 @@ function displayQuestion(list){
         icon.id = "edit";
         let trash = document.createElement("i");
         trash.className = "fa fa-trash-o";
-        trash.id = "delete"
+        trash.id = indexRemove;
+        trash.addEventListener('click',remove)
         option.appendChild(icon);
         option.appendChild(trash);
         card.appendChild(option);
-        
+        numberQ++
     }
 }
-
+//remove question
+function remove(event){
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          let btnRemove = event.target;
+          console.log(btnRemove)
+          btnRemove.parentElement.parentElement.remove();
+          let btnId = btnRemove.id;
+          listOfQuestionAndAnswer.splice(btnId,1)
+          console.log(listOfQuestionAndAnswer)
+        }
+    })
+}
 // display all question
 function displayAllQuestion(){
     if (listOfQuestionAndAnswer.length>0){
+        document.querySelector('.container-banner').style.display = 'none'
+        document.querySelector(".description-card").style.display = "none";
         document.querySelector("form").style.display = "none";
         document.getElementById("add").style.display = "block";
         document.getElementById("show").style.display = "none";
     }else{
-        Swal.fire({
-            title: 'No question in list for now!',
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
-          })
+        Swal.fire('No question in list for now !!')
     }
 }
 let show = document.querySelector("#show");
