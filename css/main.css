@@ -217,3 +217,46 @@ ul li{
 .form-group{
     margin-top: 1rem;
 }
+
+
+/* ================================Display Game To Play ============================== */dy
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.quiz-card {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 8px;
+    padding: 3rem;
+    border-top: 5px solid #1565c0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#question{
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    margin-bottom: 40px;
+}
+
+
+#a, #b, #c,#d {
+    width: 95%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #1565c0;
+    margin-top: 30px;
+}
+
+.answer {
+    width: 100%;
+}
+.allAnswers{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+/* ==============dy */

@@ -40,36 +40,38 @@
             <br>
             <div class="answers">
                 <div class="an">
-                    a.<input type="text" placeholder="Option1..." id="a" class="input-group">
+                    a.<input type="text" placeholder="Option1..." id="an1" class="input-group">
                 </div>
                 <div class="an">
-                    b.<input type="text" placeholder="Option2..." id="b" class="input-group">
+                    b.<input type="text" placeholder="Option2..." id="an2" class="input-group">
                 </div>
                 <div class="an">
-                    c.<input type="text" placeholder="Option3..." id="c" class="input-group">
+                    c.<input type="text" placeholder="Option3..." id="an3" class="input-group">
                 </div>
                 <div class="an">
-                    d.<input type="text" placeholder="Option4..." id="d" class="input-group">
+                    d.<input type="text" placeholder="Option4..." id="an4" class="input-group">
                 </div>
 
                 <div class="an">
-                    Correct Answer : <input type="text" placeholder=" a, b, c, or d" id="correct-answer">
+                    Correct Answer : <select name="choice" id="correct-answer">
+                        <option value="a">a</option>
+                        <option value="b">b</option>
+                        <option value="c">c</option>
+                        <option value="d">d</option>
+                    </select>
                 </div>
             </div>
             <div class="button">
                 <button id="create-btn" type="button">Create</button>
-
                 <button id="cancel-btn" type="button">Cancle</button>
 
             </div>
         </form>
-    <div class="display-question">
-        <h1 id="title"></h1>
-    </div>
-    <button class="btn" id="show">Show</button>
-    <button class="btn" id="add">Add +</button>
- 
-    
+        <div class="display-question">
+            <h2 id="title"></h2>
+        </div>
+        <button class="btn" id="show">Show</button>
+        <button class="btn" id="add">Add +</button>
     </div>
     <script src="js/main.js" defer></script>
 </body>

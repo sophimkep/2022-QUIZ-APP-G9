@@ -6,16 +6,15 @@ let listOfQuestionAndAnswer = [];
 function addQuestion() {
     let newList = {};
     let answer = {};
-    let title = document.querySelector(".description").value;
     let questionInput = document.querySelector("#question").value;
-    let firstA = document.querySelector("#a").value;
-    let secondA = document.querySelector("#b").value;
-    let thirdA = document.querySelector("#c").value;
-    let fourthA = document.querySelector("#d").value;
+    let firstA = document.querySelector("#an1").value;
+    let secondA = document.querySelector("#an2").value;
+    let thirdA = document.querySelector("#an3").value;
+    let fourthA = document.querySelector("#an4").value;
     let score = document.querySelector(".score").value;
     let correct = document.getElementById("correct-answer").value;
 
-    if (questionInput !== "" && firstA !=="" && secondA !== "" && thirdA !== "" && fourthA !== "" && score != 0 && title !==""){
+    if (questionInput !== "" && firstA !=="" && secondA !== "" && thirdA !== "" && fourthA !== "" && score != 0 ){
         newList.Question = questionInput;
         newList.Options = answer;
         answer.a = firstA;
@@ -27,7 +26,6 @@ function addQuestion() {
         listOfQuestionAndAnswer.push(newList)
         displayQuestion(listOfQuestionAndAnswer)
     }
-    
     
 }
 let createButton = document.getElementById("create-btn");
@@ -51,7 +49,7 @@ function displayQuestion(list){
         newcardContainer.appendChild(card)
         
         // create h2 className questions and append to card
-        let questions = document.createElement("h3");
+        let questions = document.createElement("h2");
         questions.className = "questions";
         questions.textContent = listOfQuestionAndAnswer[question].Question;
         
@@ -75,22 +73,22 @@ function displayQuestion(list){
         
         const answer1 = document.createElement('label')
         answer1.className = "eachAn"
-        answer1.textContent = "a .  " + listOfQuestionAndAnswer[question].Options.a;
+        answer1.textContent = "a .  " + listOfQuestionAndAnswer[question].Options.an1;
         
         
         const answer2 = document.createElement('label')
         answer2.className = "eachAn"
-        answer2.textContent = "b .  " + listOfQuestionAndAnswer[question].Options.b;
+        answer2.textContent = "b .  " + listOfQuestionAndAnswer[question].Options.an2;
         
         
         const answer3 = document.createElement('label')
         answer3.className = "eachAn"
-        answer3.textContent = "c .  " + listOfQuestionAndAnswer[question].Options.c;
+        answer3.textContent = "c .  " + listOfQuestionAndAnswer[question].Options.an3;
         
         
         const answer4 = document.createElement('label')
         answer4.className = "eachAn"
-        answer4.textContent = "d .  " + listOfQuestionAndAnswer[question].Options.d;
+        answer4.textContent = "d .  " + listOfQuestionAndAnswer[question].Options.an4;
         
         // card.appendChild(title)
         form_gruop1.appendChild(answer1)
@@ -120,6 +118,7 @@ function displayQuestion(list){
         card.appendChild(option);
     }
 }
+
 let active1 = document.querySelector("#play-quiz");
 function act(){
     document.querySelector(".active1").style.background = "#90caf9"
@@ -139,3 +138,62 @@ function active(){
 active2.addEventListener("click", active);
 
 
+// ===============================Display game to play =======================dy
+function displayQuizToPlay() {
+
+    let title = document.querySelector(".description").value;
+    let header = document.createElement("h1");
+    header.textContent = title;
+    document.querySelector(".container").appendChild(header)
+
+
+    document.querySelector(".form-card").style.display = "none";
+    document.querySelector(".description-card").style.display = "none";
+    document.querySelector(".display-question").style.display = "none";
+    document.querySelector("#show").style.display = "none";
+
+    for (let i in listOfQuestionAndAnswer){
+        let cardPlayQuiz = document.createElement("div");
+        cardPlayQuiz.className = "quiz-card";
+        document.querySelector(".container").appendChild(cardPlayQuiz);
+        
+        let questionPlace = document.createElement("h2");
+        questionPlace.id = "question"
+        
+        let answers  = document.createElement("div");
+        answers.className = "allAnswers"
+        
+        let firstAnswer = document.createElement("button");
+        firstAnswer.id = "a";
+        let secondAnswer = document.createElement("button");
+        secondAnswer.id = "b";
+        let thirdAnswer = document.createElement("button");
+        thirdAnswer.id = "c";
+        let fourthAnswer = document.createElement("button");
+        fourthAnswer.id = "d";
+        
+        questionPlace.textContent = listOfQuestionAndAnswer[i].Question
+        firstAnswer.textContent = listOfQuestionAndAnswer[i].Options.a;
+        secondAnswer.textContent = listOfQuestionAndAnswer[i].Options.b
+        thirdAnswer.textContent = listOfQuestionAndAnswer[i].Options.c
+        fourthAnswer.textContent = listOfQuestionAndAnswer[i].Options.d
+        
+        answers.appendChild(firstAnswer);
+        answers.appendChild(secondAnswer);
+        answers.appendChild(thirdAnswer);
+        answers.appendChild(fourthAnswer);
+        
+        cardPlayQuiz.appendChild(questionPlace);
+        cardPlayQuiz.appendChild(answers);
+    }
+}  
+document.querySelector(".quiz-card").style.display = "none";
+
+displayQuizToPlay()  
+function playQuiz() {
+    document.querySelector(".quiz-card").style.display = "block";
+}
+
+let playButton = document.querySelector("#play-quiz");
+playButton.addEventListener("click", playQuiz);
+// ==================================================dy======
