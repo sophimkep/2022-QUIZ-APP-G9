@@ -158,20 +158,23 @@ ul li{
 .btn:hover{
     transition: 0.3s;
     color: black;
+    transform: scale(1.1,1.1);
     background: #eee;
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .button #create-btn:hover{
     transition: 0.3s;
+    transform: scale(1.1,1.1);
     color: black;
     background: #eee;
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.button #cancel-btn:hover{
+.button #cancle-btn:hover{
     transition: 0.3s;
+    transform: scale(1.1,1.1);
     color: black;
     background: #eee;
     cursor: pointer;
@@ -197,6 +200,7 @@ ul li{
     outline: none;
     float: right;
     width: 50px;
+    margin-top: 20px;
     
 }
 .answers {
@@ -225,7 +229,7 @@ ul li{
     font-size: 1rem;
     border: none;
 }
-.button #cancel-btn{
+.button #cancle-btn{
     background: red;
     float: right;
     color: white;
@@ -292,7 +296,7 @@ ul li{
     text-align: center;
 }
 
-#question{
+#questions{
     padding: 10px;
     width: 100%;
     border-bottom: 1px solid gray;
