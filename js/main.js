@@ -1,8 +1,6 @@
 
-// add question
+//================================================== add question or create question =========================================================
 let listOfQuestionAndAnswer = [];
-
-// add question
 function addQuestion() {
     let newList = {};
     let answer = {};
@@ -25,24 +23,39 @@ function addQuestion() {
         newList.score = score;
         listOfQuestionAndAnswer.push(newList)
         displayQuestion(listOfQuestionAndAnswer)
-    }
-    
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Question added to the list',
+            showConfirmButton: false,
+            timer: 600
+          })
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! this form is not completed',
+          })
+        document.querySelector(".message-container").style.display = "none";
+    }  
+ 
+    document.getElementById("title").style.display = "block"
 }
-let createButton = document.getElementById("create-btn");
-createButton.addEventListener("click", addQuestion);
+// ======================================================================== End ====================================================
 
 
-// display question
+// =======================================================================display question==========================================
 function displayQuestion(list){
     let newcardContainer = document.querySelector(".display-question");
     let allcards = document.querySelectorAll(".card");
     for (let cards of allcards){
         cards.parentNode.removeChild(cards)
     }
+    let numberQ = 1
     let title = document.querySelector(".description").value;
     document.getElementById("title").textContent = title;
     for (let question in list){
-
+     
         // create div name card to contain question and answers
         let card = document.createElement("div");
         card.className = "card";
@@ -51,7 +64,7 @@ function displayQuestion(list){
         // create h2 className questions and append to card
         let questions = document.createElement("h2");
         questions.className = "questions";
-        questions.textContent = listOfQuestionAndAnswer[question].Question;
+        questions.textContent ='Question : '+ numberQ +'. ' + listOfQuestionAndAnswer[question].Question;
         
         // get score from array 
         let scoreEachQuestion = document.createElement("p");
@@ -69,34 +82,32 @@ function displayQuestion(list){
         form_gruop3.className = 'form-group';
         let form_gruop4 = document.createElement('div')
         form_gruop4.className = 'form-group';
-        
-        
+                
         const answer1 = document.createElement('label')
         answer1.className = "eachAn"
-        answer1.textContent = "a .  " + listOfQuestionAndAnswer[question].Options.an1;
+
+        answer1.textContent = "a .  " + listOfQuestionAndAnswer[question].Options.a;
         
         
         const answer2 = document.createElement('label')
         answer2.className = "eachAn"
-        answer2.textContent = "b .  " + listOfQuestionAndAnswer[question].Options.an2;
+        answer2.textContent = "b .  " + listOfQuestionAndAnswer[question].Options.b;
         
         
         const answer3 = document.createElement('label')
         answer3.className = "eachAn"
-        answer3.textContent = "c .  " + listOfQuestionAndAnswer[question].Options.an3;
-        
-        
+        answer3.textContent = "c .  " + listOfQuestionAndAnswer[question].Options.c;
+
         const answer4 = document.createElement('label')
         answer4.className = "eachAn"
-        answer4.textContent = "d .  " + listOfQuestionAndAnswer[question].Options.an4;
+        answer4.textContent = "d .  " + listOfQuestionAndAnswer[question].Options.d;
         
         // card.appendChild(title)
         form_gruop1.appendChild(answer1)
         form_gruop2.appendChild(answer2)
         form_gruop3.appendChild(answer3)
         form_gruop4.appendChild(answer4)
-        
-        
+                
         card.appendChild(form_gruop1)
         card.appendChild(form_gruop2)
         card.appendChild(form_gruop3)
@@ -112,51 +123,53 @@ function displayQuestion(list){
         icon.id = "edit";
         let trash = document.createElement("i");
         trash.className = "fa fa-trash-o";
-        trash.id = "delete"
+        trash.id = indexRemove;
+        trash.addEventListener('click',remove)
         option.appendChild(icon);
         option.appendChild(trash);
         card.appendChild(option);
+        numberQ++
     }
 }
+// ================================================================= End =====================================================
 
-let active1 = document.querySelector("#play-quiz");
-function act(){
-    document.querySelector(".active1").style.background = "#90caf9"
-    document.querySelector(".active1").style.color = "white"
-    document.querySelector(".active2").style.background = "cornsilk"
-    document.querySelector(".active2").style.color = "#1565c0"
+// =============================================================show or display all question==================================
+function displayAllQuestion(){
+    if (listOfQuestionAndAnswer.length>0){
+        document.querySelector('.container-banner').style.display = 'none'
+        document.querySelector(".description-card").style.display = "none";
+        document.querySelector("form").style.display = "none";
+        document.getElementById("add").style.display = "block";
+        document.getElementById("show").style.display = "none";
+    }else{
+        Swal.fire('No question in list for now !!')
+    }
 }
-active1.addEventListener("click", act)
-
-let active2 = document.querySelector("#edit-Quiz");
-function active(){
-    document.querySelector(".active2").style.background = "#90caf9"
-    document.querySelector(".active2").style.color = "white"
-    document.querySelector(".active1").style.background = "cornsilk"
-    document.querySelector(".active1").style.color = "#1565c0"
-}
-active2.addEventListener("click", active);
+let show = document.querySelector("#show");
+show.addEventListener("click", displayAllQuestion)
+// ===================================================================== End ===================================================
 
 
-// ===============================Display game to play =======================dy
+// =============================================================Display game to play ===========================================
 function displayQuizToPlay() {
-
+    
+    document.getElementById("add").style.display = "none";
     let title = document.querySelector(".description").value;
-    let header = document.createElement("h1");
-    header.textContent = title;
-    document.querySelector(".container").appendChild(header)
-
+    document.getElementById("header").textContent = title;
 
     document.querySelector(".form-card").style.display = "none";
     document.querySelector(".description-card").style.display = "none";
     document.querySelector(".display-question").style.display = "none";
     document.querySelector("#show").style.display = "none";
 
+    let quizCardcontainer = document.querySelector(".quiz-container");
+    let quizcard = document.querySelectorAll(".quiz-card");
+    for (let card of quizcard){
+        card.parentNode.removeChild(card)
+    }
     for (let i in listOfQuestionAndAnswer){
-        let cardPlayQuiz = document.createElement("div");
-        cardPlayQuiz.className = "quiz-card";
-        document.querySelector(".container").appendChild(cardPlayQuiz);
-        
+        let quizCard = document.createElement("div");
+        quizCard.className = "quiz-card";
         let questionPlace = document.createElement("h2");
         questionPlace.id = "question"
         
@@ -168,7 +181,7 @@ function displayQuizToPlay() {
         let secondAnswer = document.createElement("button");
         secondAnswer.id = "b";
         let thirdAnswer = document.createElement("button");
-        thirdAnswer.id = "c";
+        thirdAnswer.id = "c";4
         let fourthAnswer = document.createElement("button");
         fourthAnswer.id = "d";
         
@@ -183,17 +196,105 @@ function displayQuizToPlay() {
         answers.appendChild(thirdAnswer);
         answers.appendChild(fourthAnswer);
         
-        cardPlayQuiz.appendChild(questionPlace);
-        cardPlayQuiz.appendChild(answers);
-    }
-}  
-document.querySelector(".quiz-card").style.display = "none";
 
-displayQuizToPlay()  
-function playQuiz() {
-    document.querySelector(".quiz-card").style.display = "block";
+        quizCard.appendChild(questionPlace)
+        quizCard.appendChild(answers)
+        quizCardcontainer.appendChild(quizCard)
+    }
 }
 
-let playButton = document.querySelector("#play-quiz");
+function playQuiz() {
+    if (listOfQuestionAndAnswer.length > 0) {
+        displayQuizToPlay()
+        document.querySelector(".quiz-container").style.display = 'block'
+    }else {
+        Swal.fire('No question in list for now !!')   
+    }
+}
+let playButton = document.getElementById("play-quiz");
 playButton.addEventListener("click", playQuiz);
-// ==================================================dy======
+// ======================================================================== End =========================================
+
+
+
+// hide banner
+function hideBanner(){
+    let userName = document.querySelector('#username').value;
+    if(userName!==''){
+        document.querySelector('.container-banner').style.display = 'none'
+        document.querySelector(".container").style.display = "block";
+        document.querySelector(".form-card").style.display = "block";
+        document.querySelector(".description-card").style.display = "block";
+        document.querySelector(".display-question").style.display = "block";
+        document.querySelector("#show").style.display = "block";
+        document.querySelector(".quiz-container").style.display = "none"
+    }else{
+        window.confirm("Don't forget to input your name !")
+    }
+}
+// btn create question
+let createButton = document.getElementById("create-btn");
+createButton.addEventListener("click", addQuestion);
+// btn create quiz on menu
+let createQuiz = document.getElementById("edit-Quiz");
+createQuiz.addEventListener("click", hideBanner);
+
+//remove
+let indexRemove = 0;
+//number of question 
+
+
+
+//remove question=========================ne
+function remove(event){
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          let btnRemove = event.target;
+          console.log(btnRemove)
+          btnRemove.parentElement.parentElement.remove();
+          let btnId = btnRemove.id;
+          listOfQuestionAndAnswer.splice(btnId,1)
+          if(listOfQuestionAndAnswer == 0) {
+              document.getElementById("title").style.display = "none"
+          }else {
+            document.getElementById("title").style.display = "block"
+          }
+        }
+    })
+}
+// ===========================================================ne
+
+
+
+// acitve when clicking=======================phim
+
+let active1 = document.querySelector("#play-quiz");
+function act(){
+    if (listOfQuestionAndAnswer.length > 0) {
+
+        document.querySelector(".active1").style.background = "#90caf9"
+        document.querySelector(".active1").style.color = "white"
+        document.querySelector(".active2").style.background = "white"
+        document.querySelector(".active2").style.color = "#1565c0"
+    }
+}
+active1.addEventListener("click", act)
+
+let active2 = document.querySelector("#edit-Quiz");
+function active(){
+    document.querySelector(".active2").style.background = "#90caf9"
+    document.querySelector(".active2").style.color = "white"
+    document.querySelector(".active1").style.background = "white"
+    document.querySelector(".active1").style.color = "#1565c0"
+}
+active2.addEventListener("click", active);
+// =====================================================phim
+

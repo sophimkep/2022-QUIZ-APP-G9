@@ -4,14 +4,19 @@
     font-family: sans-serif;
 }
 /* Menu */
+.nav-container{
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
 .nav-bar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem 0px;
-    width: 100%;
-    background: #eee;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;}
+    padding: 10px 0px;
+    width: 90%;
+    margin: auto;
+    
+}
 .logo img{
     width: 20%;
 }
@@ -34,6 +39,53 @@ ul li{
     cursor: pointer;
     color: cornsilk;
     border-radius: 7px;
+}
+.container {
+    display: none;
+}
+/* container-banner */
+.container-banner {
+    width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    color: #1565c0;
+    margin-top: 5px;
+
+}
+
+.right {
+    margin-top: 120px;
+}
+.container-banner p {
+    padding: 10px;
+    font-size: 18px;
+}    
+.container-banner img{
+    width: 560px;
+    height: 430px;
+    padding: 40px;
+}
+.button{
+    padding: 17px;
+}
+.container-banner input{
+    padding: 10px;
+    outline: none;
+    color:  #1565c0;
+    font-size: 17px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid  #969faa;
+}
+.container-banner input:focus{
+    border-bottom: 2px solid #1565c0 ;
+}
+.container-banner ::placeholder{
+    color:gray;
 }
 /* container */
 .container{
@@ -92,7 +144,7 @@ ul li{
     margin-left: 5px;
     margin-right: 5px;
     width: 100px;
-    padding: 10px;
+    padding: 7px;
     border-radius: 7px;
     border: none;
     font-size: 1rem;
@@ -159,13 +211,15 @@ ul li{
     outline: none;
     
 }
-
+#correct-answer{
+    font-size: 15px;
+}
 .button #create-btn{
     float: right;
     color: white;
     font-weight: bold;
     width: 100px;
-    padding: 10px;
+    padding: 7px;
     border-radius: 10px;
     background: #1565c0;
     font-size: 1rem;
@@ -177,10 +231,11 @@ ul li{
     color: white;
     font-weight: bold;
     width: 100px;
-    padding: 10px;
+    padding: 7px;
     border-radius: 10px;
     font-size: 1rem;
     border: none;
+    margin-right: 1rem;
 }
 
 .an{
@@ -219,10 +274,13 @@ ul li{
 }
 
 
-/* ================================Display Game To Play ============================== */dy
-h1 {
+
+/* ================================Display Game To Play ==============================dy */
+#header {
     text-align: center;
     margin-bottom: 40px;
+    color: #1565c0;
+    font-weight: bold;
 }
 
 .quiz-card {
@@ -248,7 +306,9 @@ h1 {
     border-radius: 15px;
     border: 2px solid #1565c0;
     margin-top: 30px;
+    
 }
+
 
 .answer {
     width: 100%;
@@ -258,5 +318,21 @@ h1 {
     grid-template-columns: repeat(2,1fr);
     flex-wrap: wrap;
     gap: 1rem;
+}
+
+#a,#b,#c,#d:hover {
+    cursor: pointer;
+}
+#a:active {
+    transform: scale(1.1,1.1);
+}
+#b:active {
+    transform: scale(1.1,1.1);
+}
+#c:active {
+    transform: scale(1.1,1.1);
+}
+#d:active {
+    transform: scale(1.1,1.1);
 }
 /* ==============dy */

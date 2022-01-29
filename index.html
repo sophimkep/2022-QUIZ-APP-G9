@@ -11,18 +11,29 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/main.css">
-
+<link rel="shortcut icon" href="img/vacon.png" type="image/x-icon">
 <body>
-    <div class="nav-bar">
-        <div class="logo">
-            <a href=""><img src="img/logo.png" alt=""></a>
+    <div class="nav-container">
+        <div class="nav-bar">
+            <div class="logo">
+                <a href=""><img src="img/logo.png" alt=""></a>
+            </div>
+            <ul class="menu">
+                <li id="play-quiz" class="active1">Play Quiz</li>
+                <li id="edit-Quiz" class="active2">Edit Quiz</li>
+            </ul>
         </div>
-        <ul class="menu">
-
-            <li id="play-quiz" class="active1">Play Quiz</li>
-            <li id="edit-Quiz" class="active2">Edit Quiz</li>
-        </ul>
     </div>
+    <div class="container-banner" id="start">
+        <div class="left">
+            <img src="img/start.png" alt="">
+        </div>
+        <div class="right">
+            <h1>Welcome to our quiz app</h1>
+            <p>You can get more knowledge by play quiz and create more quiz by yourself.</p>
+            <p>Enter your name here:</p>
+            <input type="text" id="username" placeholder="Your name" required>
+        </div>
     </div>
     <div class="container">
         <!-- add question -->
@@ -30,13 +41,11 @@
             <h2>Quiz Title</h2>
             <input type="text" placeholder="Description..." class="description">
         </div>
-
         <form action="" class="form-card">
             <div class="question-score">
                 <input type="text" placeholder="Add question..." id="question">
-                <input type="number" class="score" value="0">
+                <input type="number" class="score" value="0" min="0" max="100">
             </div>
-
             <br>
             <div class="answers">
                 <div class="an">
@@ -70,10 +79,16 @@
         <div class="display-question">
             <h2 id="title"></h2>
         </div>
+        <div class="quiz-container">
+            <h1 id="header"></h1>
+
+        </div>
         <button class="btn" id="show">Show</button>
         <button class="btn" id="add">Add +</button>
+
     </div>
     <script src="js/main.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
